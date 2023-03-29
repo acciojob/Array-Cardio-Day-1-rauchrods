@@ -28,21 +28,40 @@ const people = [
 
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's and return the filtered array
+
 export function myfilter() {
 
+    let newarr =  inventors.filter((obj)=>{
+
+        return (obj.year>=1500 && obj.year<1600);    
+       
+      });
+     return newarr;
 }
 
 // Array.prototype.map()
 // 2. Give us an array of the inventor first and last names (i.e. full name)
 // Ex: For the first inventor the full name will be 'Albert Einstein'
 export function map() {
+  let ansarr = [];
 
+  inventors.forEach((obj)=>{
+    let fullname = obj.first + " " + obj.last;
+    ansarr.push(fullname);
+  });
+  return ansarr;
 }
 
 
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest and return the sorted array
 export function sort() {
+
+    inventors.sort((obj1, obj2)=>{
+        return obj1.year- obj2.year;
+    });
+ 
+    return inventors;
 
 }
 
@@ -52,16 +71,40 @@ export function sort() {
 // Return the total number of years all the inventors lived
 export function reduce() {
 
+   
+
 }
 
 // 5. Sort the inventors by years lived and return the sorted array
 export function sortbylived() {
+
+    inventors.sort((obj1,obj2)=>{
+        return (obj1.passed-obj1.year) -  (obj2.passed-obj2.year);
+     });
+
+     return inventors;
 
 }
 
 // 6. sort Exercise
 // Sort the people alphabetically by last name and return the sorted array
 export function sortByLastName() {
+
+    people.sort((str1,str2)=>{
+  
+        let ln1 = str1.split(" ")[1];
+        let ln2 = str2.split(" ")[1];
+        if(ln1<ln2){
+            return -1;
+        }
+        else if(ln1>ln2){
+            return 1;
+        }
+        return 0;
+        
+    });
+
+    return people;
 
 }
 
@@ -72,3 +115,4 @@ const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bik
 export function reducedSum() {
     // Return an object containing transports as key and its number of occurances as the key's value
 }
+
