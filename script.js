@@ -83,10 +83,10 @@ export function sortbylived() {
 
     inventors.sort((obj1,obj2)=>{
         if((obj1.passed-obj1.year) < (obj2.passed-obj2.year)){
-            return -1;
+            return 1;
         }
         else if((obj1.passed-obj1.year) > (obj2.passed-obj2.year)){
-            return 1;
+            return -1;
         }
         return 0;
 
@@ -124,5 +124,17 @@ const data = ['car', 'car', 'truck', 'truck', 'bike', 'walk', 'car', 'van', 'bik
 
 export function reducedSum() {
     // Return an object containing transports as key and its number of occurances as the key's value
-}
+    let ansobj={
+        car:0,
+        truck:0,
+        bike:0,
+        walk:0,
+        van:0,
+        pogostick:0
+    }
+    for(let str of data){
+        ansobj[str] = ansobj[str]+1;
+    }
 
+    return ansobj;
+}
