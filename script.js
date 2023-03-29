@@ -45,9 +45,8 @@ export function myfilter() {
 export function map() {
   let ansarr = [];
 
-  inventors.forEach((obj)=>{
-    let fullname = obj.first + " " + obj.last;
-    ansarr.push(fullname);
+  ansarr = inventors.map((obj)=>{
+    return obj.first + " " + obj.last;
   });
   return ansarr;
 }
@@ -71,7 +70,11 @@ export function sort() {
 // Return the total number of years all the inventors lived
 export function reduce() {
 
-   
+    let totalyrs = inventors.reduce((accumulator, currentvalue)=>{
+        return accumulator + (currentvalue.passed-currentvalue.year);
+      },0)
+
+      return totalyrs;
 
 }
 
@@ -79,7 +82,14 @@ export function reduce() {
 export function sortbylived() {
 
     inventors.sort((obj1,obj2)=>{
-        return (obj1.passed-obj1.year) -  (obj2.passed-obj2.year);
+        if((obj1.passed-obj1.year) < (obj2.passed-obj2.year)){
+            return -1;
+        }
+        else if((obj1.passed-obj1.year) > (obj2.passed-obj2.year)){
+            return 1;
+        }
+        return 0;
+
      });
 
      return inventors;
