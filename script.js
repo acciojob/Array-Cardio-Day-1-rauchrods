@@ -100,21 +100,30 @@ export function sortbylived() {
 // Sort the people alphabetically by last name and return the sorted array
 export function sortByLastName() {
 
-    people.sort((str1,str2)=>{
+    // people.sort((str1,str2)=>{
   
-        let ln1 = str1.split(" ")[1];
-        let ln2 = str2.split(" ")[1];
-        if(ln1<ln2){
-            return -1;
-        }
-        else if(ln1>ln2){
-            return 1;
-        }
-        return 0;
+    //     let ln1 = str1.split(" ")[1];
+    //     let ln2 = str2.split(" ")[1];
+    //     if(ln1<ln2){
+    //         return -1;
+    //     }
+    //     else if(ln1>ln2){
+    //         return 1;
+    //     }
+    //     return 0;
         
-    });
+    // });
 
-    return people;
+    // return people;
+
+    if(str1<str2){
+        return -1;
+    }
+    else if(str1>str2){
+        return 1;
+    }
+    return 0;
+
 
 }
 
