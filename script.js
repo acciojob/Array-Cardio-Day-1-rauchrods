@@ -116,14 +116,17 @@ export function sortByLastName() {
 
     // return people;
 
-    if(str1<str2){
-        return -1;
-    }
-    else if(str1>str2){
-        return 1;
-    }
-    return 0;
+    people.sort((str1,str2)=>{
+        if(str1<str2){
+            return -1;
+        }
+        else if(str1>str2){
+            return 1;
+        }
+        return 0;
+    });
 
+     return people;
 
 }
 
